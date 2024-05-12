@@ -4,7 +4,9 @@ pragma solidity 0.8.20;
 
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
-abstract contract Box is Ownable {
+contract Box is Ownable {
+    constructor() Ownable(msg.sender) {} // it has to included for the code to run
+
     uint256 private s_number;
 
     event NumberChanged(uint256 number);
